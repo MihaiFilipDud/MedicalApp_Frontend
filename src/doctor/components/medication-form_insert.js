@@ -129,7 +129,7 @@ class MedicationFormInsert extends React.Component {
 
 
                 <FormGroup id='sideEffects'>
-                    <Label for='sideEffectsField'> Address: </Label>
+                    <Label for='sideEffectsField'> Side Effects: </Label>
                     <Input name='sideEffects' id='sideEffectsField' placeholder={this.state.formControls.sideEffects.placeholder}
                            onChange={this.handleChange}
                            defaultValue={this.state.formControls.sideEffects.value}
@@ -140,7 +140,7 @@ class MedicationFormInsert extends React.Component {
                 </FormGroup>
 
                 <FormGroup id='dosage'>
-                    <Label for='dosageField'> Age: </Label>
+                    <Label for='dosageField'> Dosage: </Label>
                     <Input name='dosage' id='dosageField' placeholder={this.state.formControls.dosage.placeholder}
                            onChange={this.handleChange}
                            defaultValue={this.state.formControls.dosage.value}

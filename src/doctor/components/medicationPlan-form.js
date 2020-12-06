@@ -36,7 +36,6 @@ class MedicationPlanForm extends React.Component {
                     }
                 },
 
-
                 dailyIntakes: {
                     value: '',
                     placeholder: 'Intructiuni de administrare...',
