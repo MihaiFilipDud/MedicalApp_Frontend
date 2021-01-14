@@ -86,9 +86,10 @@ class CaregiverContainer extends React.Component {
 
     webSocket(){
 
-        let sock = new SockJS('https://mihaifilipdud-backend-sd.herokuapp.com/caregiverNotifications', [], {
-            sessionId: 8
-        });
+        // let sock = new SockJS('https://mihaifilipdud-backend-sd.herokuapp.com/caregiverNotifications', [], {
+        //     sessionId: 8
+        // });
+        let sock = new SockJS('http://localhost:8080/caregiverNotifications')
         let stompClient = Stomp.over(sock);
         stompClient.connect({}, function (frame) {
             console.log("Connected to websocket");

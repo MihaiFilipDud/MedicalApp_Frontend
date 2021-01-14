@@ -33,7 +33,7 @@ class Login extends React.Component {
         axios.post(apiBaseUrl+'/login', payload)
             .then(function (response) {
                 console.log(response);
-                if(response.status === 202){
+                if(response.status === 200){
                     console.log("Login successfull");
                     Cookies.set('userInfo', response.data);
                     let user = JSON.parse(Cookies.get('userInfo'));

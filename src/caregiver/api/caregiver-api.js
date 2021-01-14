@@ -1,5 +1,6 @@
 import {HOST} from '../../commons/hosts';
 import RestApiClient from "../../commons/api/rest-client";
+import Cookies from "js-cookie";
 
 
 const endpoint = {
@@ -12,6 +13,9 @@ const endpoint = {
 function getPersons(callback) {
     let request = new Request(HOST.backend_api + endpoint.person, {
         method: 'GET',
+        headers:{
+            "Authorization": "Bearer " + JSON.parse(Cookies.get('userInfo')).jwt
+        }
     });
     console.log(request.url);
     RestApiClient.performRequest(request, callback);
@@ -19,7 +23,10 @@ function getPersons(callback) {
 
 function getPersonById(params, callback){
     let request = new Request(HOST.backend_api + endpoint.person + params.id, {
-       method: 'GET'
+       method: 'GET',
+        headers:{
+            "Authorization": "Bearer " + JSON.parse(Cookies.get('userInfo')).jwt
+        }
     });
 
     console.log(request.url);
@@ -30,6 +37,8 @@ function postPerson(user, callback){
     let request = new Request(HOST.backend_api + endpoint.person , {
         method: 'POST',
         headers : {
+
+                "Authorization": "Bearer " + JSON.parse(Cookies.get('userInfo')).jwt,
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
@@ -43,7 +52,10 @@ function postPerson(user, callback){
 
 function deletePerson(params, callback) {
     let request = new Request(HOST.backend_api + endpoint.person + "/delete/" + params.id, {
-        method: 'POST'
+        method: 'POST',
+        headers:{
+            "Authorization": "Bearer " + JSON.parse(Cookies.get('userInfo')).jwt
+        }
     });
 
     console.log("URL: " + request.url);
@@ -54,6 +66,9 @@ function deletePerson(params, callback) {
 function getMedicationPlans(callback) {
     let request = new Request(HOST.backend_api + '/' + endpoint.medicationPlan, {
         method: 'GET',
+        headers:{
+            "Authorization": "Bearer " + JSON.parse(Cookies.get('userInfo')).jwt
+        }
     });
     console.log(request.url);
     RestApiClient.performRequest(request, callback);
@@ -61,7 +76,10 @@ function getMedicationPlans(callback) {
 
 function getPatientById(params, callback){
     let request = new Request(HOST.backend_api + endpoint.patient + '/' + params, {
-        method: 'GET'
+        method: 'GET',
+        headers:{
+            "Authorization": "Bearer " + JSON.parse(Cookies.get('userInfo')).jwt
+        }
     });
 
     console.log(request.url);
@@ -72,6 +90,8 @@ function getMedicationPlanById(params, callback){
     let request = new Request(HOST.backend_api + endpoint.patient+ '/getMedicationPlans', {
         method: 'POST',
         headers : {
+
+                "Authorization": "Bearer " + JSON.parse(Cookies.get('userInfo')).jwt,
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
@@ -84,7 +104,10 @@ function getMedicationPlanById(params, callback){
 
 function getCaregiverById(params, callback){
     let request = new Request(HOST.backend_api + endpoint.caregiver + '/' + params, {
-        method: 'GET'
+        method: 'GET',
+        headers:{
+            "Authorization": "Bearer " + JSON.parse(Cookies.get('userInfo')).jwt
+        }
     });
 
     console.log(request.url);
@@ -96,6 +119,8 @@ function caregiverGetPatients(user, callback){
     let request = new Request(HOST.backend_api + endpoint.caregiver + "/getPatients", {
         method: 'POST',
         headers : {
+
+                "Authorization": "Bearer " + JSON.parse(Cookies.get('userInfo')).jwt,
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },

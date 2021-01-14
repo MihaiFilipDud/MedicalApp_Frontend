@@ -337,9 +337,9 @@ class DoctorContainer extends React.Component {
     }
 
     render() {
-        if (JSON.parse(Cookies.get('userInfo')).role !== 'Doctor'){
-            return <Redirect to='/'/>
-        } else
+        // if (JSON.parse(Cookies.get('userInfo')).role !== 'Doctor'){
+        //     return <Redirect to='/'/>
+        // } else
         return (
             <div>
                 <CardHeader>

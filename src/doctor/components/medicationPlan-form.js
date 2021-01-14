@@ -36,16 +36,24 @@ class MedicationPlanForm extends React.Component {
                     }
                 },
 
-                dailyIntakes: {
+                intakeIntervalStart: {
                     value: '',
-                    placeholder: 'Intructiuni de administrare...',
                     valid: false,
                     touched: false,
                 },
 
-                treatmentPeriod: {
+                intakeIntervalEnd: {
                     value: '',
-                    placeholder: 'Perioada tratamentului...',
+                    valid: false,
+                    touched: false,
+                },
+                treatmentStart: {
+                    value: '',
+                    valid: false,
+                    touched: false,
+                },
+                treatmentEnd: {
+                    value: '',
                     valid: false,
                     touched: false,
                 },
@@ -111,8 +119,10 @@ class MedicationPlanForm extends React.Component {
     handleSubmit() {
         let medPlan = {
 
-            dailyInatkes: this.state.formControls.dailyIntakes.value,
-            treatmentPeriod: this.state.formControls.treatmentPeriod.value,
+            intakeIntervalStart: this.state.formControls.intakeIntervalStart.value,
+            intakeIntervalEnd: this.state.formControls.intakeIntervalEnd.value,
+            treatmentStart: this.state.formControls.treatmentStart.value,
+            treatmentEnd: this.state.formControls.treatmentEnd.value,
             patient:{
                 id: this.selPatient.id
             },
@@ -142,26 +152,50 @@ class MedicationPlanForm extends React.Component {
                     <div className={"error-message row"}> * Name must have at least 3 characters </div>}
                 </FormGroup>
 
-                <FormGroup id='dailyIntakes'>
-                    <Label for='dailyIntakesField'> Daily Intakes: </Label>
-                    <Input name='dailyIntakes' id='dailyIntakesField' placeholder={this.state.formControls.dailyIntakes.placeholder}
+                <FormGroup id='intakeIntervalStart'>
+                    <Label for='intakeIntervalStart'> Daily Intake Interval Start: </Label>
+                    <Input name='intakeIntervalStart' id='intakeIntervalStartField'
                            onChange={this.handleChange}
-                           defaultValue={this.state.formControls.dailyIntakes.value}
-                           touched={this.state.formControls.dailyIntakes.touched? 1 : 0}
-                           valid={this.state.formControls.dailyIntakes.valid}
+                           defaultValue={this.state.formControls.intakeIntervalStart.value}
+                           touched={this.state.formControls.intakeIntervalStart.touched? 1 : 0}
+                           valid={this.state.formControls.intakeIntervalStart.valid}
                            required
                     />
-                    {this.state.formControls.dailyIntakes.touched && !this.state.formControls.dailyIntakes.valid &&
+                    {this.state.formControls.intakeIntervalStart.touched && !this.state.formControls.intakeIntervalStart.valid &&
                     <div className={"error-message"}> * Email must have a valid format</div>}
                 </FormGroup>
 
-                <FormGroup id='treatmentPeriod'>
-                    <Label for='treatmentPeriodField'> Treatment Period: </Label>
-                    <Input name='treatmentPeriod' id='treatmentPeriodField' placeholder={this.state.formControls.treatmentPeriod.placeholder}
+                <FormGroup id='intakeIntervalEnd'>
+                    <Label for='intakeIntervalEnd'> Daily Intake Interval End: </Label>
+                    <Input name='intakeIntervalEnd' id='intakeIntervalEndField'
                            onChange={this.handleChange}
-                           defaultValue={this.state.formControls.treatmentPeriod.value}
-                           touched={this.state.formControls.treatmentPeriod.touched? 1 : 0}
-                           valid={this.state.formControls.treatmentPeriod.valid}
+                           defaultValue={this.state.formControls.intakeIntervalEnd.value}
+                           touched={this.state.formControls.intakeIntervalEnd.touched? 1 : 0}
+                           valid={this.state.formControls.intakeIntervalEnd.valid}
+                           required
+                    />
+                    {this.state.formControls.intakeIntervalEnd.touched && !this.state.formControls.intakeIntervalEnd.valid &&
+                    <div className={"error-message"}> * Email must have a valid format</div>}
+                </FormGroup>
+
+                <FormGroup id='treatmentStart'>
+                    <Label for='treatmentStartField'> Treatment Start: </Label>
+                    <Input name='treatmentStart' id='treatmentStartField' type="date"
+                           onChange={this.handleChange}
+                           defaultValue={this.state.formControls.treatmentStart.value}
+                           touched={this.state.formControls.treatmentStart.touched? 1 : 0}
+                           valid={this.state.formControls.treatmentStart.valid}
+                           required
+                    />
+                </FormGroup>
+
+                <FormGroup id='treatmentEnd'>
+                    <Label for='treatmentEndField'> Treatment End: </Label>
+                    <Input name='treatmentEnd' id='treatmentEndField' type="date"
+                           onChange={this.handleChange}
+                           defaultValue={this.state.formControls.treatmentEnd.value}
+                           touched={this.state.formControls.treatmentEnd.touched? 1 : 0}
+                           valid={this.state.formControls.treatmentEnd.valid}
                            required
                     />
                 </FormGroup>
