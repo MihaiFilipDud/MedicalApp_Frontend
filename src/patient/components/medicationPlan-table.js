@@ -27,12 +27,20 @@ class MedicationPlanTable extends React.Component {
 
         this.columns = [
             {
-                Header: 'Daily Intakes',
-                accessor: 'dailyInatkes',
+                Header: 'Daily Intake Start',
+                accessor: 'intakeIntervalStart',
             },
             {
-                Header: 'Treatment period',
-                accessor: 'treatmentPeriod',
+                Header: 'Daily Intake End',
+                accessor: 'intakeIntervalEnd',
+            },
+            {
+                Header: 'Treatment period start',
+                accessor: 'treatmentStart',
+            },
+            {
+                Header: 'Treatment period end',
+                accessor: 'treatmentEnd',
             },
             {
                 Header: 'Medications',
